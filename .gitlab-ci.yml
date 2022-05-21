@@ -1,0 +1,21 @@
+include:
+  - project: "affinidi/foundational/foundational-pipeline"
+    ref: "main"
+    file: "security.yml"
+
+stages:
+  - test
+  - security-testing
+
+.node-base:
+  image: registry.gitlab.com/affinidi/container-image-cache/node-build:14.16.1-alpine3.13
+  before_script:
+    - npm ci --cache .npm --no-progress --no-optional --no-audit --ignore-scripts --prefer-offline
+  cache:
+    key:
+      files:
+        - package.json
+        - package-lock.json
+    paths:
+      - .npm/
+      - node_modules/
