@@ -1,52 +1,63 @@
-# Affinidi Use Case Implementation - Driving License - Holder
-[![Generic badge](https://img.shields.io/badge/Test_Coverage-95%-<COLOR>.svg)](https://shields.io/)
-## Table of contents
+# Holder's web wallet powered by Affinidi API
+This is a react application that offers a web UI and uses Affinidy's API to store verifiable credentials. The portal can also be used to create verifiable presentation and offers advanced properties like selective disclosure. Once the credential is stored, it can be shared with different services.
+## Pre-requisite
+- [npm](https://www.npmjs.com/get-npm)
+- [git](https://git-scm.com/download)
 
-- [Introduction](#introduction)
-- [Initial Set Up](#Initial-set-up)
+## Installation
 
-  - [Generate Affinidi API Key](#generate-api-key)
-  - [Configure .env File](#configure-.env-file)
+`npm install`
 
-- [How to run](#how-to-run)
-  - [Sequence](#sequence)
+Install using npm instead of yarn because the current package-lock.json was
+generated using npm.
 
-## Introduction
+## Available Scripts
 
-Welcome to Driving License Use Case - Holder application. In this application, you will be able to see how does a user access his/her Affinidi Wallet which will stores all of their verifiable credentials. Holder application is important as other than viewing the credentials, it can used to accept or to approve sharing of credentials.
+In the project directory, you can run:
 
-You can either run this program in your local machine or try it out here: https://usecases.drivinglicense-holder.vc-generator.com/
+### `npm start`
 
-## Initial Set Up
+Runs the app in the development mode.\
+Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
+Assuming Issuer app is running on port:3000
 
-### Generate API Key
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-Before you could use our API and SDK services, you would have to register to get the API keys.
+### `npm test`
 
-1. Go to apikey.affinidi.com
-2. Register for an account
-3. Store the `API Key` and `API Key Hash` safely
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### Configure .env file
+### `npm run build`
 
-1. Open terminal and navigate to the project folder
-2. Run `cp .env.example .env`
-3. Fill in the .env file with the details that you have gathered in the previous steps
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-```
-REACT_APP_API_KEY=<<Afffinidi's API Key>>
-REACT_APP_API_KEY_HASH=<<Affinidi's API Key Hash>>
-REACT_APP_ENVIRONMENT=prod
-```
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-## How to run
+## Steps to store and share credentials:
 
-1. Open terminal and navigate to the project folder
-2. Run `npm install`
-3. Run `cp .env.example .env`
-4. Populate the credentials in `.env`
-5. Run `npm start`
+### Prepare issuer portal
+1. Clone the repository
+`https://github.com/Anushka3174/Holder-Portal.git`
+3. Install the dependencies
+`npm install`
+4. Open up the repository in a code editor of your choice
 
-### Sequence
+### Running the application
 
-Run Issuer, Holder and Verifier in this sequence in your local machine.
+1. Run with npm
+`npm start`
+2. The web app will run on 'http://localhost:3001/'.
+3. Create an account through the 'Sign Up' menu on the top right or use the given credential: Username:applicantHolder Password: Pass1234
+4. The homepage shows all the credential that is stored so far. On the top, a button 'Store credential' can be clicked to store any new credentials
+![credential view](assets/WalletCredentials.PNG)
+6.This portal is also used to share credentials. When verifier portal asks for certain documents it gets redirected to 'http://localhost:3001/' assuming that the issuer portal is running on port 3000 and the verifier portal is running on port 3002. The required credential can be selected and a verifier presentation can be shared.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
