@@ -39,7 +39,7 @@ Your app is ready to be deployed!
 
 ## Steps to store and share credentials:
 
-### Prepare issuer portal
+### Prepare holder portal
 1. Clone the repository
 `https://github.com/Anushka3174/Holder-Portal.git`
 3. Install the dependencies
